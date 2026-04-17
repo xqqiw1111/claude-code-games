@@ -4,7 +4,24 @@
       "Bash(start *)",
       "Bash(git --version)",
       "Bash(gh --version)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Skill(update-config)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"C:/Users/Indi Kinsella/Desktop/work and recreation/claude code test\" && git add -A && git diff --cached --quiet || git commit -m \"Auto-sync: update files\" && git push",
+            "timeout": 30,
+            "statusMessage": "Syncing to GitHub..."
+          }
+        ]
+      }
     ]
   }
 }
